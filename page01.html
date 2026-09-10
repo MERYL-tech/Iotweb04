@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>page01</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&family=Monomaniac+One&display=swap"
+      rel="stylesheet"
+    />
+ 
+    <style>
+      body {
+        background-color: black;
+      }
+      a,
+      i {
+        color: white;
+        font-size: 1.5rem;
+      }
+      .nav-hello span {
+        color: rgb(0, 252, 210);
+        font-family: itim;
+        font-size: 3.5rem;
+        font-style: italic;
+      }
+      .nav-menu a {
+        font-family: monomaniac one;
+        text-decoration: none;
+      }
+      .nav-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 80px; /*บ,ล  ซ,ข*/
+      }
+      .nav-menu,
+      .nav-hello,
+      .nav-icon {
+        width: 100%;
+      }
+      .nav-hello {
+        text-align: center;
+      }
+      .nav-icon {
+        /* text-align: right; */
+        display: flex;
+        justify-content: flex-end;
+        gap: 30px;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+      }
+      .per-info span {
+        color: white;
+        font-family: monomaniac one;
+        font-size: 2.5rem;
+      }
+      .per-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+      }
+      #fwd{
+        color: rgb(0, 252, 210);
+      }
+      .per-pic{
+        margin-top: 150px;
+        display: flex;
+        justify-content: center;
+      }
+      img{
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid rgb(0, 252, 210);
+        padding: 15px;
+      }
+      a:hover{
+        color: rgb(0, 252, 210);
+      }
+      i:hover{
+        color: rgb(0, 252, 210);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- ส่วนของ navbar -->
+      <div class="nav-bar">
+        <!-- เมนูต่างๆ ชิดซ้าย -->
+        <div class="nav-menu">
+          <a href="#">Portfolio</a>
+          <a href="#">About Me</a>
+          <a href="#">Get In Touch</a>
+        </div>
+        <!-- ข้อความ Hello อยู่ตรงกลาง -->
+        <div class="nav-hello">
+          <span>hello</span>
+        </div>
+        <!-- ไอคอนต่างๆ ชิดขวา -->
+        <div class="nav-icon">
+          <a href="#"><i class="bi bi-github"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+ 
+      <!-- ส่วนของ personal info -->
+      <div class="per-info">
+        <span>S6819M10016</span>
+        <span>Pongsakorn Muangpan</span>
+        <span id="fwd">Freelance Web Devloper</span>
+        <span>Based In THAILAND</span>
+      </div>
+ 
+      <!-- ส่วนของ personal picture -->
+      <div class="per-pic">
+        <img src="./images/person.jpg" alt="person">
+      </div>
+    </div>
+  </body>
+</html>
