@@ -1,11 +1,756 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page04</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keithston Cafe & Bakery</title>
+    <!-- เรียกใช้ Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <!-- เรียกใช้ FontAwesome สำหรับไอคอน -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* Base Styles */
+      html {
+        /* เพิ่มความสมูทเวลาคลิกลิงก์เลื่อนหน้า */
+        scroll-behavior: smooth;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      .serif-font {
+        font-family: "Playfair Display", serif;
+      }
+      .cursive-font {
+        font-family: "Great Vibes", cursive;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 24px;
+        background-color: #8c4a2f;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.3s;
+        text-align: center;
+      }
+      .btn:hover {
+        background-color: #6d3a24;
+      }
+      .btn-outline {
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid transparent;
+      }
+      .btn-outline:hover {
+        text-decoration: underline;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Hero Section */
+      .hero {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&q=80")
+            center/cover no-repeat;
+        color: #fff;
+        padding-bottom: 100px;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .logo {
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: #dcb387;
+      }
+      .logo i {
+        font-size: 24px;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+      .nav-links a:hover {
+        color: #dcb387;
+      }
+      .hero-content {
+        max-width: 600px;
+        margin: 80px auto 0 10%;
+      }
+      .hero-content h3 {
+        color: #dcb387;
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: 400;
+      }
+      .hero-content h1 {
+        font-size: 60px;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        font-style: italic;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      /* Section Titles */
+      .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-style: italic;
+        margin: 60px 0 40px;
+        font-weight: 700;
+      }
+
+      /* Top Products */
+      .top-products {
+        padding: 40px 0;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .product-card {
+        background-color: #1a1a1a;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        position: relative;
+      }
+      .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 15px;
+      }
+      .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .price-title .price {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #ccc;
+      }
+      .price-title .title {
+        font-size: 16px;
+      }
+      .product-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+      }
+      .info-icon {
+        border: 1px solid #fff;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      /* Promo Banner */
+      .promo-banner {
+        background: url("https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=1920&q=80")
+          center/cover;
+        padding: 80px 20px;
+        text-align: center;
+        margin: 60px 0;
+        background-color: #f9f9f9;
+      }
+      .promo-content {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: 8px;
+      }
+      .promo-content h2 {
+        color: #8c4a2f;
+        font-size: 36px;
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+      .promo-content p {
+        color: #666;
+        margin-bottom: 25px;
+        font-size: 14px;
+      }
+
+      /* Explore More */
+      .explore-more {
+        padding: 40px 0;
+        text-align: center;
+      }
+      .category-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 40px;
+        list-style: none;
+        font-weight: 500;
+      }
+      .category-tabs li {
+        cursor: pointer;
+        color: #666;
+      }
+      .category-tabs li.active {
+        color: #8c4a2f;
+        border-bottom: 2px solid #8c4a2f;
+        padding-bottom: 5px;
+      }
+      .explore-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+      .explore-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      /* About Us Banner */
+      .about-banner {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=1920&q=80")
+            center/cover;
+        color: #fff;
+        text-align: center;
+        padding: 80px 20px;
+        margin: 60px 0;
+      }
+      .about-banner h2 {
+        font-size: 36px;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+      .about-banner p {
+        max-width: 600px;
+        margin: 0 auto 30px;
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* Featured Treats */
+      .featured-treats {
+        padding: 40px 0 80px;
+      }
+      .treats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .treat-card {
+        text-align: center;
+      }
+      .treat-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+      .treat-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #111;
+        color: #fff;
+        padding: 60px 0 20px;
+        background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+      }
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+      .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .social-icons span {
+        color: #dcb387;
+        margin-right: 10px;
+      }
+      .social-icons i {
+        color: #dcb387;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-col h3 {
+        color: #dcb387;
+        margin-bottom: 20px;
+        font-size: 22px;
+      }
+      .footer-col p,
+      .footer-col a {
+        color: #ccc;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: block;
+        line-height: 1.8;
+      }
+      .footer-col a:hover {
+        color: #dcb387;
+        text-decoration: underline;
+      }
+      .news-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      .news-item img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      .news-text span {
+        font-size: 12px;
+        color: #888;
+        display: block;
+      }
+      .news-text p {
+        color: #fff;
+        margin: 0;
+      }
+      .footer-bottom {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        padding-top: 20px;
+        border-top: 1px solid #222;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .product-grid,
+        .explore-grid,
+        .treats-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-content h1 {
+          font-size: 40px;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <img
+              src="./images/1.png"
+              alt="Logo"
+              style="width: 100px; height: auto"
+            />
+          </div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">Blog</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#services">Services</a></li>
+          </ul>
+        </nav>
+        <div class="hero-content">
+          <h3>Delicious Cafe</h3>
+          <h1>Sweet Treats,<br />Perfect Eats</h1>
+          <div class="hero-buttons">
+            <!-- ลิงก์ปุ่มไปยัง Section สินค้า -->
+            <a href="#products" class="btn">Shop Now</a>
+            <a href="#explore" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Top Products Section (Services) -->
+    <section class="top-products container" id="products">
+      <h2 class="section-title">Top Products</h2>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="./images/9.png" alt="Bread" />
+          <div class="product-info">
+            <div class="price-title">
+              <div class="price">40 Baht</div>
+              <div class="title">Whole Grain<br />Bread</div>
+            </div>
+            <div class="product-actions">
+              <div class="info-icon">i</div>
+              <a href="#contact" class="btn" style="padding: 5px 15px">Add</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=500&q=80"
+            alt="Pastry"
+          />
+          <div class="product-info">
+            <div class="price-title">
+              <div class="price">40 Baht</div>
+              <div class="title">Whole Grain<br />Bread</div>
+            </div>
+            <div class="product-actions">
+              <div class="info-icon">i</div>
+              <a href="#contact" class="btn" style="padding: 5px 15px">Add</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="./images/8.png" alt="Bread" />
+          <div class="product-info">
+            <div class="price-title">
+              <div class="price">40 Baht</div>
+              <div class="title">Whole Grain<br />Bread</div>
+            </div>
+            <div class="product-actions">
+              <div class="info-icon">i</div>
+              <a href="#contact" class="btn" style="padding: 5px 15px">Add</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80"
+            alt="Bread"
+          />
+          <div class="product-info">
+            <div class="price-title">
+              <div class="price">40 Baht</div>
+              <div class="title">Whole Grain<br />Bread</div>
+            </div>
+            <div class="product-actions">
+              <div class="info-icon">i</div>
+              <a href="#contact" class="btn" style="padding: 5px 15px">Add</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=80"
+            alt="Bread"
+          />
+          <div class="product-info">
+            <div class="price-title">
+              <div class="price">40 Baht</div>
+              <div class="title">Whole Grain<br />Bread</div>
+            </div>
+            <div class="product-actions">
+              <div class="info-icon">i</div>
+              <a href="#contact" class="btn" style="padding: 5px 15px">Add</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500&q=80"
+            alt="Bread"
+          />
+          <div class="product-info">
+            <div class="price-title">
+              <div class="price">40 Baht</div>
+              <div class="title">Whole Grain<br />Bread</div>
+            </div>
+            <div class="product-actions">
+              <div class="info-icon">i</div>
+              <a href="#contact" class="btn" style="padding: 5px 15px">Add</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promo Banner Section -->
+    <section class="promo-banner" id="promo">
+      <div class="promo-content">
+        <h2>20% Off Your<br />First Order</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt rem.
+        </p>
+        <a href="#products" class="btn">Learn More</a>
+      </div>
+    </section>
+
+    <!-- Explore More Section -->
+    <section class="explore-more container" id="explore">
+      <h2 class="section-title">Explore More</h2>
+      <ul class="category-tabs">
+        <li>Cake</li>
+        <li>Muffins</li>
+        <li>Croissant</li>
+        <li>Bread</li>
+        <li>Tart</li>
+        <li>Favorite</li>
+      </ul>
+      <div class="explore-grid">
+        <div class="explore-item">
+          <img
+            src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=500&q=80"
+            alt="Muffin"
+          />
+        </div>
+        <div class="explore-item">
+          <img
+            src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&q=80"
+            alt="Cake"
+          />
+        </div>
+        <div class="explore-item">
+          <img
+            src="https://images.unsplash.com/photo-1519869325930-281384150729?w=500&q=80"
+            alt="Tart"
+          />
+        </div>
+        <div class="explore-item">
+          <img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80"
+            alt="Cake"
+          />
+        </div>
+        <div class="explore-item">
+          <img
+            src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=500&q=80"
+            alt="Chocolate Cake"
+          />
+        </div>
+        <div class="explore-item">
+          <img
+            src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=500&q=80"
+            alt="Cupcake"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Banner -->
+    <section class="about-banner" id="about">
+      <h2>About us</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt rem
+        odit labore unde nemo omnis sequi.
+      </p>
+      <a href="#services" class="btn">Read More</a>
+    </section>
+
+    <!-- Featured Treats Section -->
+    <section class="featured-treats container" id="services">
+      <h2 class="section-title">Featured Treats</h2>
+      <div class="treats-grid">
+        <div class="treat-card">
+          <img
+            src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=500&q=80"
+            alt="Puff Pastry"
+          />
+          <div class="treat-info">
+            <span>Puff Pastry</span>
+            <span>8 Baht</span>
+          </div>
+        </div>
+        <div class="treat-card">
+          <img
+            src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&q=80"
+            alt="Doughnuts"
+          />
+          <div class="treat-info">
+            <span>Doughnuts</span>
+            <span>8 Baht</span>
+          </div>
+        </div>
+        <div class="treat-card">
+          <img
+            src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&q=80"
+            alt="Brownies"
+          />
+          <div class="treat-info">
+            <span>Brownies</span>
+            <span>8 Baht</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer / Contact Us -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-top">
+          <div class="logo">
+            <i class="fa-solid fa-mug-hot"></i>
+            KEITHSTON
+          </div>
+          <div class="social-icons">
+            <span>Follow us</span>
+            <!-- ลิงก์ Facebook -->
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              title="Facebook"
+            >
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+
+            <!-- ลิงก์ Pinterest -->
+            <a
+              href="https://www.pinterest.com/"
+              target="_blank"
+              title="Pinterest"
+            >
+              <i class="fa-brands fa-pinterest"></i>
+            </a>
+
+            <!-- ลิงก์ WhatsApp -->
+            <a
+              href="https://www.whatsapp.com/"
+              target="_blank"
+              title="WhatsApp"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <!-- ลิงก์ Instagram -->
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>About Us</h3>
+            <p>(02) 807-4500</p>
+            <p>s6819m10016@sau.ac.th</p>
+            <p>19/1 Phetkasem Road<br />Nongkham Bangkok<br />10160</p>
+          </div>
+          <div class="footer-col">
+            <h3>Explore</h3>
+            <!-- ลิงก์เมนู Footer ก็ชี้ไปตาม Section ต่างๆ ด้วย -->
+            <a href="#home">Home</a>
+            <a href="#news">Blog</a>
+            <a href="#contact">Contact us</a>
+            <a href="#services">Services</a>
+          </div>
+          <div class="footer-col" id="news">
+            <h3>Recent News</h3>
+            <div class="news-item">
+              <img
+                src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=100&q=80"
+                alt="News"
+              />
+              <div class="news-text">
+                <span>June 14, 2025</span>
+                <p>Puff pastry bliss.</p>
+              </div>
+            </div>
+            <div class="news-item">
+              <img src="./images/9.png" alt="News" />
+              <div class="news-text">
+                <span>June 14, 2025</span>
+                <p>Puff pastry bliss.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2025 Bake House. All rights reserved
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
+<script>
+    // ดึงข้อมูลเมนูทั้งหมดมาเก็บไว้
+    const tabs = document.querySelectorAll('.category-tabs li');
+
+    // สั่งให้ทุกเมนูรอรับการคลิก
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // 1. เมื่อถูกคลิก ให้ลบแถบสี (active) ออกจากทุกเมนูก่อน
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // 2. เพิ่มแถบสี (active) ให้เฉพาะเมนูที่เพิ่งกดคลิก
+            this.classList.add('active');
+        });
+    });
+</script>
